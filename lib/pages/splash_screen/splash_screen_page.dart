@@ -8,10 +8,23 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  double _widthSmall = 120;
+  double _widthLarge = 240;
+
   @override
   void initState() {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      changeValueContainers();
+    });
     redirectToHomeScreen();
     super.initState();
+  }
+
+  changeValueContainers() {
+    setState(() {
+      _widthSmall = 0;
+      _widthLarge = 0;
+    });
   }
 
   void redirectToHomeScreen() async {
@@ -33,8 +46,8 @@ class _SplashPageState extends State<SplashPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 240,
+                    AnimatedContainer(
+                      width: _widthLarge,
                       height: 80,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -43,6 +56,8 @@ class _SplashPageState extends State<SplashPage> {
                         ),
                         color: Color(0xff2EFF8B),
                       ),
+                      duration: Duration(seconds: 3),
+                      curve: Curves.fastOutSlowIn,
                     ),
                   ],
                 ),
@@ -52,8 +67,8 @@ class _SplashPageState extends State<SplashPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 120,
+                    AnimatedContainer(
+                      width: _widthSmall,
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -62,6 +77,8 @@ class _SplashPageState extends State<SplashPage> {
                         ),
                         color: Color(0xff2EFF8B),
                       ),
+                      duration: Duration(seconds: 3),
+                      curve: Curves.fastOutSlowIn,
                     ),
                   ],
                 ),
@@ -75,8 +92,8 @@ class _SplashPageState extends State<SplashPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      width: 120,
+                    AnimatedContainer(
+                      width: _widthSmall,
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -85,6 +102,8 @@ class _SplashPageState extends State<SplashPage> {
                         ),
                         color: Color(0xff2EFF8B),
                       ),
+                      duration: Duration(seconds: 3),
+                      curve: Curves.fastOutSlowIn,
                     ),
                   ],
                 ),
@@ -94,8 +113,8 @@ class _SplashPageState extends State<SplashPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      width: 240,
+                    AnimatedContainer(
+                      width: _widthLarge,
                       height: 80,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -104,6 +123,8 @@ class _SplashPageState extends State<SplashPage> {
                         ),
                         color: Color(0xff2EFF8B),
                       ),
+                      duration: Duration(seconds: 3),
+                      curve: Curves.fastOutSlowIn,
                     ),
                   ],
                 ),
